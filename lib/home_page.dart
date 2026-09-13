@@ -14,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   @override
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     selectedFilter = filters[0];
   }
