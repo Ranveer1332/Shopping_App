@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoppingapp/global_variable.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -92,6 +93,11 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            ListView.builder(
+              itemCount: products.length,
+                itemBuilder: (context, index) {
+                  
+                }, )
           ],
         ),
       ),
