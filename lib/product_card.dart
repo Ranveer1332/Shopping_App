@@ -16,13 +16,15 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color.fromRGBO(216, 240, 253, 1),
+      margin: EdgeInsets.all(20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title),
+          Text(title,style: Theme.of(context).textTheme.titleMedium,),
           SizedBox(height: 5),
-          Text('\$$price'),
+          Text('\$$price',style:Theme.of(context).textTheme.bodySmall,),
           SizedBox(height: 5),
-          Image.asset(image,height: 175,),
+          Center(child: Image.asset(image,height: 175,)),
         ],
       ),
     );
