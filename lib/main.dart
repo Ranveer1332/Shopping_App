@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoppingapp/cart_provider.dart';
 import 'package:shoppingapp/home_page.dart';
 
 
@@ -11,42 +13,46 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Shopping App',
-      theme: ThemeData(
-        fontFamily: 'Lato',
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(254, 206, 1, 1),
-          primary: Color.fromRGBO(254, 206, 1, 1),),
+    return ChangeNotifierProvider(
+      create:(context) => CartProvider(),
+      child: MaterialApp(
 
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
+        title: 'Shopping App',
+        theme: ThemeData(
+          fontFamily: 'Lato',
+          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(254, 206, 1, 1),
+            primary: Color.fromRGBO(254, 206, 1, 1),),
+      
+          inputDecorationTheme: InputDecorationTheme(
+            hintStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+      
+            prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
           ),
-
-          prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
-        ),
-        textTheme: TextTheme(
-          titleLarge: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+          textTheme: TextTheme(
+            titleLarge: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            titleMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            bodySmall: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            )
           ),
-          bodySmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          )
-        ),
-        appBarTheme: AppBarTheme(
-          titleTextStyle: TextStyle(
-            fontSize: 20,
-            color: Colors.black,
+          appBarTheme: AppBarTheme(
+            titleTextStyle: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
           ),
+            useMaterial3: true,
         ),
-          useMaterial3: true,
+      
+        home:HomePage(),
       ),
-
-      home:HomePage(),
     );
   }
 }
