@@ -67,14 +67,18 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: ElevatedButton(
+                  child: ElevatedButton.icon(
                     onPressed: (){
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       minimumSize: Size(double.infinity, 50),
                     ),
-                    child:  Text(
+                    icon: Icon(
+                      Icons.shopping_cart,
+                      color: Colors.black,
+                    ),
+                    label:  Text(
                       'Add To Cart',
                       style: TextStyle(
                         color: Colors.black,
