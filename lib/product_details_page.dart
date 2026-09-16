@@ -15,6 +15,30 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   int selectedSize = 0;
+
+  final snackBar = SnackBar(content: Text("Please Select a Size"),);
+
+  void onTap(){
+    if (selectedSize !=0){
+      Provider.of<CartProvider>(context,listen: false).addProduct(
+          {'id': widget.product['id'],
+            'title': widget.product['title'],
+            'price': widget.product['price'],
+            'imageUrl': widget.product['imageUrl'],
+            'company': widget.product['company'],
+            'size': selectedSize,
+          }
+      );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Added to Cart'))
+      );
+    }
+    else{
+      ScaffoldMessenger.of(context).showSnackBar(
+        snackBar
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +95,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton.icon(
                     onPressed: (){
-                      Provider.of<CartProvider>(context,listen: false).addProduct(widget.product);
+                      onTap();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
