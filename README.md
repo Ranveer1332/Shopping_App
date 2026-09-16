@@ -114,7 +114,7 @@ flutter run
 
 Edit [`global_variable.dart`](lib/global_variable.dart) and add an entry to the `products` list:
 
-```dart
+```
 {
   'id': '4',
   'title': 'Puma Running Shoes',
